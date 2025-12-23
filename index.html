@@ -20,6 +20,41 @@
             overflow-x: hidden;
         }
         
+        .lang-switcher {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+        
+        .lang-btn.active {
+            background: #2d5f4f;
+            opacity: 1;
+        }
+        
+        .lang-btn:hover {
+            opacity: 1;
+        }
+        
         .hero {
             height: 100vh;
             background: linear-gradient(135deg, #2d5f4f 0%, #1a4d3a 100%);
@@ -325,10 +360,21 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+                padding: 0.6rem 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="es">🇪🇸</button>
+        <button class="lang-btn" data-lang="en">🇬🇧</button>
+    </div>
+
     <div class="hero">
         <svg class="mandala" style="top: 10%; left: 10%;" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="0.5"/>
@@ -342,66 +388,66 @@
         </svg>
         <div class="hero-content">
             <h1>Tuluminati</h1>
-            <p>Vive la Magia del Caribe</p>
+            <p data-i18n="hero-subtitle">Vive la Magia del Caribe</p>
         </div>
     </div>
 
     <div class="section">
-        <h2 class="section-title">El Estilo de Vida Tulum</h2>
+        <h2 class="section-title" data-i18n="lifestyle-title">El Estilo de Vida Tulum</h2>
         <div class="lifestyle-grid">
             <a href="Bienestar.html" class="lifestyle-card">
                 <div class="lifestyle-icon">🧘‍♀️</div>
-                <h3>Bienestar</h3>
-                <p>Conecta con tu ser interior a través de yoga al amanecer, meditación en la playa y terapias holísticas que renuevan cuerpo y alma en este paraíso espiritual.</p>
+                <h3 data-i18n="wellness-title">Bienestar</h3>
+                <p data-i18n="wellness-desc">Conecta con tu ser interior a través de yoga al amanecer, meditación en la playa y terapias holísticas que renuevan cuerpo y alma en este paraíso espiritual.</p>
             </a>
             <a href="Naturaleza.html" class="lifestyle-card">
                 <div class="lifestyle-icon">🌴</div>
-                <h3>Naturaleza</h3>
-                <p>Sumérgete en cenotes cristalinos, explora la selva maya y descubre playas vírgenes donde el tiempo se detiene y la naturaleza habla.</p>
+                <h3 data-i18n="nature-title">Naturaleza</h3>
+                <p data-i18n="nature-desc">Sumérgete en cenotes cristalinos, explora la selva maya y descubre playas vírgenes donde el tiempo se detiene y la naturaleza habla.</p>
             </a>
             <a href="Gastronomia.html" class="lifestyle-card">
                 <div class="lifestyle-icon">🍃</div>
-                <h3>Gastronomía</h3>
-                <p>Saborea la fusión perfecta entre tradición maya y cocina internacional, con ingredientes orgánicos y presentaciones que son verdaderas obras de arte.</p>
+                <h3 data-i18n="gastronomy-title">Gastronomía</h3>
+                <p data-i18n="gastronomy-desc">Saborea la fusión perfecta entre tradición maya y cocina internacional, con ingredientes orgánicos y presentaciones que son verdaderas obras de arte.</p>
             </a>
             <a href="Arte-y-Cultura.html" class="lifestyle-card">
                 <div class="lifestyle-icon">🎨</div>
-                <h3>Arte & Cultura</h3>
-                <p>Vive experiencias únicas en galerías boutique, instalaciones en la selva y eventos que celebran la creatividad en todas sus formas.</p>
+                <h3 data-i18n="art-title">Arte & Cultura</h3>
+                <p data-i18n="art-desc">Vive experiencias únicas en galerías boutique, instalaciones en la selva y eventos que celebran la creatividad en todas sus formas.</p>
             </a>
             <a href="Vida-Nocturna.html" class="lifestyle-card">
                 <div class="lifestyle-icon">🌙</div>
-                <h3>Vida Nocturna</h3>
-                <p>Baila bajo las estrellas al ritmo de DJs internacionales, disfruta ceremonias de luna llena y experiencias místicas que transforman la noche.</p>
+                <h3 data-i18n="nightlife-title">Vida Nocturna</h3>
+                <p data-i18n="nightlife-desc">Baila bajo las estrellas al ritmo de DJs internacionales, disfruta ceremonias de luna llena y experiencias místicas que transforman la noche.</p>
             </a>
             <a href="Beach-Life.html" class="lifestyle-card">
                 <div class="lifestyle-icon">🏖️</div>
-                <h3>Beach Life</h3>
-                <p>Relájate en beach clubs exclusivos donde el lujo bohemio se encuentra con el confort, creando el ambiente perfecto para desconectar.</p>
+                <h3 data-i18n="beach-title">Beach Life</h3>
+                <p data-i18n="beach-desc">Relájate en beach clubs exclusivos donde el lujo bohemio se encuentra con el confort, creando el ambiente perfecto para desconectar.</p>
             </a>
         </div>
     </div>
 
     <div class="places-section">
         <div class="places-container">
-            <h2 class="section-title">Lugares Imperdibles</h2>
+            <h2 class="section-title" data-i18n="places-title">Lugares Imperdibles</h2>
             
             <div class="place-featured">
                 <div class="place-image"></div>
                 <div class="place-content">
-                    <span class="tag">Beach Club</span>
-                    <h3>Paraíso en la Arena</h3>
-                    <p>Experimenta el equilibrio perfecto entre energía y relajación en este icónico beach club. Con música envolvente, gastronomía excepcional y vistas al mar que quitan el aliento, es el lugar ideal para vivir momentos inolvidables desde el amanecer hasta el atardecer.</p>
-                    <a href="Beach-Life.html" class="place-btn">Descubrir Más</a>
+                    <span class="tag" data-i18n="tag-beach-club">Beach Club</span>
+                    <h3 data-i18n="place1-title">Paraíso en la Arena</h3>
+                    <p data-i18n="place1-desc">Experimenta el equilibrio perfecto entre energía y relajación en este icónico beach club. Con música envolvente, gastronomía excepcional y vistas al mar que quitan el aliento, es el lugar ideal para vivir momentos inolvidables desde el amanecer hasta el atardecer.</p>
+                    <a href="Beach-Life.html" class="place-btn" data-i18n="btn-discover">Descubrir Más</a>
                 </div>
             </div>
 
             <div class="place-featured">
                 <div class="place-content">
-                    <span class="tag">Restaurante</span>
-                    <h3>Sabores de la Selva</h3>
-                    <p>Déjate seducir por una propuesta gastronómica que honra los ingredientes locales con técnicas contemporáneas. En un ambiente mágico rodeado de naturaleza, cada platillo cuenta una historia y cada bocado es una celebración de los sabores auténticos del Caribe.</p>
-                    <a href="Gastronomia.html" class="place-btn">Reservar Mesa</a>
+                    <span class="tag" data-i18n="tag-restaurant">Restaurante</span>
+                    <h3 data-i18n="place2-title">Sabores de la Selva</h3>
+                    <p data-i18n="place2-desc">Déjate seducir por una propuesta gastronómica que honra los ingredientes locales con técnicas contemporáneas. En un ambiente mágico rodeado de naturaleza, cada platillo cuenta una historia y cada bocado es una celebración de los sabores auténticos del Caribe.</p>
+                    <a href="Gastronomia.html" class="place-btn" data-i18n="btn-reserve">Reservar Mesa</a>
                 </div>
                 <div class="place-image"></div>
             </div>
@@ -409,26 +455,149 @@
             <div class="place-featured">
                 <div class="place-image"></div>
                 <div class="place-content">
-                    <span class="tag">Wellness</span>
-                    <h3>Santuario del Alma</h3>
-                    <p>Encuentra tu centro en este oasis de tranquilidad donde antiguas tradiciones mayas se encuentran con terapias modernas. Yoga, meditación, temazcal y tratamientos de spa diseñados para revitalizar tu espíritu y renovar tu energía vital.</p>
-                    <a href="Bienestar.html" class="place-btn">Explora</a>
+                    <span class="tag" data-i18n="tag-wellness">Wellness</span>
+                    <h3 data-i18n="place3-title">Santuario del Alma</h3>
+                    <p data-i18n="place3-desc">Encuentra tu centro en este oasis de tranquilidad donde antiguas tradiciones mayas se encuentran con terapias modernas. Yoga, meditación, temazcal y tratamientos de spa diseñados para revitalizar tu espíritu y renovar tu energía vital.</p>
+                    <a href="Bienestar.html" class="place-btn" data-i18n="btn-explore">Explora</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="newsletter">
-        <h2>Únete a la Comunidad</h2>
-        <p>Recibe las últimas recomendaciones y experiencias exclusivas de Tulum</p>
+        <h2 data-i18n="newsletter-title">Únete a la Comunidad</h2>
+        <p data-i18n="newsletter-desc">Recibe las últimas recomendaciones y experiencias exclusivas de Tulum</p>
         <form class="newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="tu@email.com" required>
-            <button type="submit">Suscribirse</button>
+            <input type="email" data-i18n-placeholder="newsletter-placeholder" placeholder="tu@email.com" required>
+            <button type="submit" data-i18n="newsletter-btn">Suscribirse</button>
         </form>
     </div>
 
     <footer>
-        <p>© 2024 Tuluminati · Vive la Magia · Tulum, Quintana Roo</p>
+        <p>© 2024 Tuluminati · <span data-i18n="footer-text">Vive la Magia</span> · Tulum, Quintana Roo</p>
     </footer>
+
+    <script>
+        const translations = {
+            es: {
+                'hero-subtitle': 'Vive la Magia del Caribe',
+                'lifestyle-title': 'El Estilo de Vida Tulum',
+                'wellness-title': 'Bienestar',
+                'wellness-desc': 'Conecta con tu ser interior a través de yoga al amanecer, meditación en la playa y terapias holísticas que renuevan cuerpo y alma en este paraíso espiritual.',
+                'nature-title': 'Naturaleza',
+                'nature-desc': 'Sumérgete en cenotes cristalinos, explora la selva maya y descubre playas vírgenes donde el tiempo se detiene y la naturaleza habla.',
+                'gastronomy-title': 'Gastronomía',
+                'gastronomy-desc': 'Saborea la fusión perfecta entre tradición maya y cocina internacional, con ingredientes orgánicos y presentaciones que son verdaderas obras de arte.',
+                'art-title': 'Arte & Cultura',
+                'art-desc': 'Vive experiencias únicas en galerías boutique, instalaciones en la selva y eventos que celebran la creatividad en todas sus formas.',
+                'nightlife-title': 'Vida Nocturna',
+                'nightlife-desc': 'Baila bajo las estrellas al ritmo de DJs internacionales, disfruta ceremonias de luna llena y experiencias místicas que transforman la noche.',
+                'beach-title': 'Beach Life',
+                'beach-desc': 'Relájate en beach clubs exclusivos donde el lujo bohemio se encuentra con el confort, creando el ambiente perfecto para desconectar.',
+                'places-title': 'Lugares Imperdibles',
+                'tag-beach-club': 'Beach Club',
+                'place1-title': 'Paraíso en la Arena',
+                'place1-desc': 'Experimenta el equilibrio perfecto entre energía y relajación en este icónico beach club. Con música envolvente, gastronomía excepcional y vistas al mar que quitan el aliento, es el lugar ideal para vivir momentos inolvidables desde el amanecer hasta el atardecer.',
+                'btn-discover': 'Descubrir Más',
+                'tag-restaurant': 'Restaurante',
+                'place2-title': 'Sabores de la Selva',
+                'place2-desc': 'Déjate seducir por una propuesta gastronómica que honra los ingredientes locales con técnicas contemporáneas. En un ambiente mágico rodeado de naturaleza, cada platillo cuenta una historia y cada bocado es una celebración de los sabores auténticos del Caribe.',
+                'btn-reserve': 'Reservar Mesa',
+                'tag-wellness': 'Wellness',
+                'place3-title': 'Santuario del Alma',
+                'place3-desc': 'Encuentra tu centro en este oasis de tranquilidad donde antiguas tradiciones mayas se encuentran con terapias modernas. Yoga, meditación, temazcal y tratamientos de spa diseñados para revitalizar tu espíritu y renovar tu energía vital.',
+                'btn-explore': 'Explora',
+                'newsletter-title': 'Únete a la Comunidad',
+                'newsletter-desc': 'Recibe las últimas recomendaciones y experiencias exclusivas de Tulum',
+                'newsletter-placeholder': 'tu@email.com',
+                'newsletter-btn': 'Suscribirse',
+                'footer-text': 'Vive la Magia'
+            },
+            en: {
+                'hero-subtitle': 'Live the Caribbean Magic',
+                'lifestyle-title': 'The Tulum Lifestyle',
+                'wellness-title': 'Wellness',
+                'wellness-desc': 'Connect with your inner self through sunrise yoga, beach meditation, and holistic therapies that renew body and soul in this spiritual paradise.',
+                'nature-title': 'Nature',
+                'nature-desc': 'Immerse yourself in crystalline cenotes, explore the Mayan jungle, and discover virgin beaches where time stands still and nature speaks.',
+                'gastronomy-title': 'Gastronomy',
+                'gastronomy-desc': 'Savor the perfect fusion of Mayan tradition and international cuisine, with organic ingredients and presentations that are true works of art.',
+                'art-title': 'Art & Culture',
+                'art-desc': 'Experience unique moments in boutique galleries, jungle installations, and events that celebrate creativity in all its forms.',
+                'nightlife-title': 'Nightlife',
+                'nightlife-desc': 'Dance under the stars to the rhythm of international DJs, enjoy full moon ceremonies and mystical experiences that transform the night.',
+                'beach-title': 'Beach Life',
+                'beach-desc': 'Relax in exclusive beach clubs where bohemian luxury meets comfort, creating the perfect atmosphere to disconnect.',
+                'places-title': 'Must-Visit Places',
+                'tag-beach-club': 'Beach Club',
+                'place1-title': 'Paradise on the Sand',
+                'place1-desc': 'Experience the perfect balance between energy and relaxation at this iconic beach club. With immersive music, exceptional gastronomy, and breathtaking ocean views, it\'s the ideal place to live unforgettable moments from sunrise to sunset.',
+                'btn-discover': 'Discover More',
+                'tag-restaurant': 'Restaurant',
+                'place2-title': 'Flavors of the Jungle',
+                'place2-desc': 'Let yourself be seduced by a gastronomic proposal that honors local ingredients with contemporary techniques. In a magical atmosphere surrounded by nature, each dish tells a story and every bite is a celebration of authentic Caribbean flavors.',
+                'btn-reserve': 'Reserve Table',
+                'tag-wellness': 'Wellness',
+                'place3-title': 'Soul Sanctuary',
+                'place3-desc': 'Find your center in this oasis of tranquility where ancient Mayan traditions meet modern therapies. Yoga, meditation, temazcal, and spa treatments designed to revitalize your spirit and renew your vital energy.',
+                'btn-explore': 'Explore',
+                'newsletter-title': 'Join the Community',
+                'newsletter-desc': 'Receive the latest recommendations and exclusive Tulum experiences',
+                'newsletter-placeholder': 'your@email.com',
+                'newsletter-btn': 'Subscribe',
+                'footer-text': 'Live the Magic'
+            }
+        };
+
+        // Detectar idioma del navegador
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            const savedLang = localStorage.getItem('tuluminati-lang');
+            
+            if (savedLang) {
+                return savedLang;
+            }
+            
+            return browserLang.startsWith('es') ? 'es' : 'en';
+        }
+
+        // Cambiar idioma
+        function setLanguage(lang) {
+            localStorage.setItem('tuluminati-lang', lang);
+            document.documentElement.lang = lang;
+            
+            // Actualizar botones
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // Actualizar textos
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.dataset.i18n;
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Actualizar placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.dataset.i18nPlaceholder;
+                if (translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+        }
+
+        // Inicializar
+        const currentLang = detectLanguage();
+        setLanguage(currentLang);
+
+        // Event listeners para botones
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.dataset.lang);
+            });
+        });
+    </script>
 </body>
 </html>
